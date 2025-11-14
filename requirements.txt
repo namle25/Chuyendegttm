@@ -1,0 +1,6 @@
+ultralytics
+opencv-python
+numpy
+cvzone
+# Note: install torch separately depending on CPU/GPU. See README or instructions.
+PySimpleGUI
