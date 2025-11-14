@@ -1,6 +1,4 @@
-. # ỨNG DỤNG NHẬN DIỆN CHỖ TRỐNG BÃI GIỮ XE — APP UTH
-
-. **Mô tả ngắn**: Ứng dụng phát hiện và báo cáo chỗ trống trong bãi giữ xe theo thời gian thực, kèm dashboard quản trị và phản hồi tự động qua email.
+# ỨNG DỤNG NHẬN DIỆN CHỖ TRỐNG BÃI GIỮ XE — APP UTH
 
 . **Ứng dụng**: Nhận diện chỗ trống bãi giữ xe (video / camera) bằng YOLOv8, hiển thị dashboard và gửi phản hồi email tự động.
 
