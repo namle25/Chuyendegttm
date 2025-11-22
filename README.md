@@ -81,11 +81,43 @@ $env:EMAIL_ENABLED = "1"
 
 **Lệnh chạy**
 
-- Chạy toàn bộ ứng dụng (mở video + dashboard):
+- Chạy toàn bộ ứng dụng (mở video + dashboard) — đảm bảo bạn đã kích hoạt virtualenv trước khi chạy (PowerShell):
 
 ```
-py .\main.py
+Set-Location F:\Chuyendegttm
+.venv\Scripts\Activate.ps1
+python .\main.py
 ```
+
+Lưu ý: khi sử dụng `py .\main.py`, Windows `py` launcher có thể sử dụng Python hệ thống thay vì venv đã kích hoạt. Nếu bạn thấy lỗi kiểu `ModuleNotFoundError: No module named 'ultralytics'` hoặc `cv2`, chạy lại bằng `python` (và đảm bảo venv đã active) hoặc gọi trực tiếp trình thông dịch của venv:
+
+```
+.venv\Scripts\python.exe .\main.py
+```
+
+**Troubleshooting**
+
+- Nếu bạn thấy lỗi `ModuleNotFoundError: No module named 'ultralytics'` hoặc `No module named 'cv2'`:
+
+  1. Kiểm tra rằng bạn đã kích hoạt virtualenv (`.venv\Scripts\Activate.ps1` trên PowerShell) và sử dụng `python` thay vì `py` để đảm bảo các gói cài trong venv được sử dụng.
+  2. Cài lại các gói cần thiết:
+
+  ```powershell
+  .venv\Scripts\python.exe -m pip install --upgrade pip
+  .venv\Scripts\python.exe -m pip install -r requirements.txt
+  ```
+
+  3. Nếu vẫn gặp lỗi với `torch`, cài thủ công (CPU example):
+
+  ```powershell
+  .venv\Scripts\python.exe -m pip install "torch>=2.0.0" torchvision --index-url https://download.pytorch.org/whl/cpu
+  ```
+
+  4. Nếu bạn thi thoảng sử dụng `py`, gọi trực tiếp venv Python để chạy script:
+
+  ```powershell
+  .venv\Scripts\python.exe .\main.py
+  ```
 
 - Nếu `python` đã được thêm vào PATH bạn cũng có thể dùng:
 
